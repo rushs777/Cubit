@@ -1,0 +1,32 @@
+import acis "/home/simon/Cubit/Practice/rotatingCylinder/knuckle.sat" attributes_on  separate_bodies 
+draw Vertex 45
+draw surface 17 18 21 
+draw Vertex 45
+draw Vertex 45
+healer autoheal volume 1 
+volume all scheme auto
+split surface   22  preview
+split surface   22 
+split surface   10  preview
+split surface   10 
+webcut volume 1  with plane normal to curve 35  close_to vertex 51  preview
+webcut volume 1  with plane normal to curve 35  close_to vertex 51  
+webcut volume 1  with plane normal to curve 35  close_to vertex 49  preview
+webcut volume 1  with plane normal to curve 35  close_to vertex 49  
+remove surface   17 extend individual 
+remove surface   15 15 extend individual 
+tweak surface 16  offset -0.9  preview
+tweak surface 16  offset -0.9 
+imprint volume  
+merge volume  
+imprint volume all 
+merge volume all 
+volume   1 scheme auto
+volume   all scheme auto
+volume   2 scheme auto
+volume all scheme auto
+composite create Surface 9 27 keep angle 15
+composite create Surface 6 24  keep angle 15
+composite create Surface 26 11 25  keep angle 15
+volume all scheme auto
+mesh volume all

@@ -1,0 +1,53 @@
+#!python
+brick x 10 y 10 z 10
+create Cylinder height 4 radius 1
+subtract volume 2 from volume 1 keep
+delete volume 1 2 
+imprint volume all
+volume all scheme Auto
+mesh volume all
+
+volume 1  size 1
+curve 16  interval default
+curve 16  size 0.5
+curve 16  scheme equal
+curve 2  interval default
+curve 2  interval 5
+curve 2  scheme equal
+surface 11  scheme pave
+mesh surface 11 
+volume 1  scheme Auto
+mesh volume 1 
+set mesh autodelete  off
+highlight linewidth 1
+quality volume 1 Allmetrics
+block 100 volume 1  
+nodeset 100 surface all 
+
+create cfd_bc 1 outflow name 'inlet' on surface 4
+create cfd_bc 2 outflow name 'outlet' on surface 6
+create cfd_bc 3 outflow name 'topBottom' on surface 3 5
+export Fluent "/home/simon/Cubit/Practice/brick.msh" Block all Nodeset all BCSet all overwrite 
+
+
+
+
+#Open FOAM does not recognize inlvetvent, intakefan, velocityinlet, pressureinlet, 
+#Trying
+
+#outflow map to patchTypeID: patch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

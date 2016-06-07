@@ -1,0 +1,9 @@
+brick x 10 y 10 z 10
+create Cylinder height 4 radius 1
+subtract volume 2 from volume 1
+webcut volume 3  with general plane plane surface 12  noimprint nomerge 
+webcut volume 3 with general plane plane surface 11 noimprint nomerge
+imprint all
+merge all
+volume all scheme Auto
+mesh volume all
